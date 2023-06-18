@@ -153,6 +153,33 @@
         "name": "Assets\\Images\\background-night.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/Images/pipe-green.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets\\Images\\pipe-green.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/toppipe.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "toppipe",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Assets/Images/pipe-green-top.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets\\Images\\pipe-green-top.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -684,7 +711,19 @@
         "zoomFactor": 0.546875,
         "windowMask": false
       },
-      "objectsGroups": [],
+      "objectsGroups": [
+        {
+          "name": "Pipes",
+          "objects": [
+            {
+              "name": "bottom"
+            },
+            {
+              "name": "top"
+            }
+          ]
+        }
+      ],
       "variables": [],
       "instances": [
         {
@@ -713,6 +752,36 @@
           "x": 1,
           "y": -3,
           "zOrder": 0,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 798,
+          "layer": "",
+          "name": "top",
+          "persistentUuid": "cb848ef5-71d9-4f80-b0fc-c895d80dbe60",
+          "width": 59,
+          "x": 588,
+          "y": 713,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 523,
+          "layer": "",
+          "name": "bottom",
+          "persistentUuid": "f1d9d232-4456-4591-aa0c-843787e823b4",
+          "width": 52,
+          "x": 588,
+          "y": 855,
+          "zOrder": 3,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -800,9 +869,127 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "bottom",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "bottom",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "toppipe",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 27,
+                        "y": -0.5
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "top",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "top",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Assets\\Images\\pipe-green-top.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 29.5,
+                        "y": 320.5
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "RotateTowardAngle"
+              },
+              "parameters": [
+                "Singh",
+                "RandomFloatInRange(-90, 90)",
+                "50",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SeDirige"
+              },
+              "parameters": [
+                "Singh",
+                "Pipes",
+                "0",
+                ""
+              ]
+            }
+          ],
+          "actions": []
+        }
+      ],
       "layers": [
         {
           "ambientLightColorB": 200,
